@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pineapple Question</title>
+
+<style>
+
+body{
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+font-family:Arial, Helvetica, sans-serif;
+background:linear-gradient(135deg,#ffb347,#ffcc33);
+overflow:hidden;
+}
+
+.container{
+text-align:center;
+position:relative;
+z-index:2;
+}
+
+.pineapple-img{
+width:260px;
+border-radius:20px;
+margin-bottom:20px;
+box-shadow:0 10px 25px rgba(0,0,0,0.25);
+}
+
+h1{
+color:white;
+font-size:36px;
+margin-bottom:30px;
+}
+
+button{
+padding:14px 30px;
+font-size:20px;
+border:none;
+border-radius:40px;
+cursor:pointer;
+margin:10px;
+transition:0.2s;
+}
+
+#yes{
+background:#ff7f11;
+color:white;
+}
+
+#yes:hover{
+transform:scale(1.2);
+}
+
+#no{
+background:white;
+position:absolute;
+}
+
+#result{
+margin-top:30px;
+font-size:30px;
+color:white;
+}
+
+.pineapple{
+position:absolute;
+font-size:28px;
+animation:float 6s linear infinite;
+opacity:0.8;
+}
+
+@keyframes float{
+from{
+transform:translateY(100vh);
+}
+to{
+transform:translateY(-10vh);
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<img src="Geminirc_Generated_Image_s54uees54uees54u.jpg" class="pineapple-img">
+
+<h1>Do you like pizza with ANANAS? 🍍</h1>
+
+<button id="yes">Yes 🍍</button>
+<button id="no">No 😏</button>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+
+const noButton = document.getElementById("no");
+
+noButton.addEventListener("mouseover", function(){
+
+let x = Math.random() * (window.innerWidth - 100);
+let y = Math.random() * (window.innerHeight - 50);
+
+noButton.style.left = x + "px";
+noButton.style.top = y + "px";
+
+});
+
+document.getElementById("yes").onclick = function(){
+document.getElementById("result").innerHTML = "Sweet! Pineapple date confirmed 🍍😎";
+};
+
+function createPineapple(){
+const p = document.createElement("div");
+p.classList.add("pineapple");
+p.innerHTML="🍍";
+
+p.style.left=Math.random()*100+"vw";
+p.style.animationDuration=(Math.random()*3+3)+"s";
+
+document.body.appendChild(p);
+
+setTimeout(()=>{p.remove()},6000);
+}
+
+setInterval(createPineapple,300);
+
+</script>
+
+</body>
+</html>
